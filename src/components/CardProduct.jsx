@@ -3,7 +3,6 @@ import '../styles/CardProduct.css'
 
 const CardProduct = ({product}) => {
 
-    console.log(product)
   return (
     <div className='card__product'>
         <div className="card__product_header">

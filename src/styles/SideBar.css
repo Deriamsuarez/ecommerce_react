@@ -1,5 +1,7 @@
 .side__bar {
     width: 250px;
+    min-width: 250px;
+
     /* border: 1px red dashed; */
     height: 100vh;
     position: sticky;
@@ -7,10 +9,12 @@
     padding: 5em 2em;
     background: var(--bg);
     transition: .5s;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .1);
+
 }
 
 .hidden__sidebar{
-    margin-left: -250px;
+    margin-left: -260px;
     transition: .5s;
 }
 
@@ -46,7 +50,7 @@
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
     border-right: 0;
-    border: 0.4px solid var(--text);
+    border: 1px solid var(--text);
     padding-right: 0;
     background-color: transparent;
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../../styles/Header.css'
 
-const Header = ({theme, setTheme, setSideBarHidden, sideBarHidden}) => {
+const Header = ({theme, setTheme, setSideBarHidden, sideBarHidden, cartHidden, setCartHidden}) => {
 
     
 
@@ -12,6 +12,9 @@ const Header = ({theme, setTheme, setSideBarHidden, sideBarHidden}) => {
 
     const handleSideBarSwitch = () => {
         setSideBarHidden(!sideBarHidden)
+    }
+    const handleCartSwitch = () => {
+        setCartHidden(!cartHidden)
     }
 
     return (
@@ -30,7 +33,7 @@ const Header = ({theme, setTheme, setSideBarHidden, sideBarHidden}) => {
                     <div className="line" />
                     <li><NavLink className="header__item" to='/purchase'><i className="fi fi-rr-box"></i></NavLink></li>
                     <div className="line" />
-                    <li className="header__item"><i className="fi fi-rr-shopping-cart"></i></li>
+                    <li onClick={handleCartSwitch} className="header__item"><i  className="fi fi-rr-shopping-cart"></i><div className="circle__count"><span>2</span></div></li>
                 </ul>
             </nav>
         </header>

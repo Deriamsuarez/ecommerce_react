@@ -25,6 +25,7 @@
   --powder-blue: #a8dadcff;
   --celadon-blue: #457b9dff;
   --prussian-blue: #1d3557ff;
+  --reverse:#ffffff; 
 
 }
 
@@ -34,6 +35,7 @@
   --text: #ffffff;
   --button-text: #ffffff;
   --main-bg: #457b9d;
+  --reverse: #1d3557ff;
 
   --powder-blue: ;
   --card-blue: #457b9dff;
@@ -56,6 +58,8 @@ button {
   cursor: pointer;
   transition: 0.2s;
   box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .1);
+  outline: none;
+  text-align: center;
 
 }
 
@@ -69,15 +73,32 @@ button:hover {
   /* border: 1px dashed rebeccapurple; */
   padding: 4.5em 2em;
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
   background-color: var(--bg);
   display: flex;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 575px) {
 
-  .side__bar{
-    min-width: 170px;
+  .side__bar, .side__cart{
+    max-width: 250px;
+    position: fixed;
+    background-color: var(--bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 .125rem .70rem rgba(0, 0, 0, 0.5);
+    margin-top: 56px;
+    padding: 2em 2em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    height: calc(100vh - 56px);
+    transition: 1s;
+  }
+
+  .side__cart{
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   ul>.line {

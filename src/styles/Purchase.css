@@ -2,9 +2,10 @@
 	animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 .hola{
-    width: 500px;
+    width: 340px;
     height: 400px;
-    background-color: aqua
+    background-color: aqua;
+    z-index: -1;
 }
 
  @keyframes flip-vertical-right {

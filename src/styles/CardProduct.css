@@ -6,6 +6,9 @@
     overflow: hidden;
     background-color: white;
     padding: 1em 0;
+    max-height: 370px;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .1);
+
 }
 
 .card__product_header{

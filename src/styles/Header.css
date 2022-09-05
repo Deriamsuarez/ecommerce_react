@@ -73,3 +73,30 @@ a {
     text-align: center;
     gap: 0.5em;
 }
+
+.fi-rr-filter{
+    color: var(--text);
+}
+
+.header__item{
+    position: relative;
+}
+
+.circle__count{
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: var(--text);
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle__count > span{
+    color: var(--reverse);
+    font-size: 8px;
+    font-weight: 600;
+}

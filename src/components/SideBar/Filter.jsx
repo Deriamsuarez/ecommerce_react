@@ -1,6 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
-const Filter = () => {
+const Filter = ({ setSearch, filter, setFilter }) => {
+
+    const products = useSelector(state => state.products)
+
+    useEffect(() => {
+        if (products) {
+            let arrFilter = []
+            products.forEach(filter => {
+                if (!arrFilter.includes(filter.category.name)) {
+                    arrFilter.push(filter.category.name)
+                }
+            });
+
+            setFilter(arrFilter)
+        }
+    }, [products])
+
+    const handleFilter = filter => {
+        let productsFilter = [];
+        products.forEach(product => {
+            if (product.category.name.includes(filter)) {
+                productsFilter.push(product)
+            }
+        });
+
+        setSearch(productsFilter)
+    }
+
     return (
         <div className="filter__types">
             <div className="filter__price">
@@ -17,12 +45,11 @@ const Filter = () => {
                 <button>Filter Price</button>
             </div>
             <div className="filter__category">
-            <h4>Category</h4>
+                <h4>Category</h4>
                 <div className="filter__line" />
                 <ul>
-                    <li>Smart TV</li>
-                    <li>Computers</li>
-                    <li>Smartphones</li>
+                    <li onClick={() => setSearch()}>All</li>
+                    {filter && filter.map(option => <li key={option} onClick={() => handleFilter(option)}>{option}</li>)}
                 </ul>
             </div>
         </div>
