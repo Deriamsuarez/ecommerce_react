@@ -13,7 +13,7 @@
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     box-shadow: 0 .125rem .30rem rgba(0, 0, 0, 0.5);
-
+    z-index: 1;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -88,7 +88,7 @@
 
 .actions > label{
     width: 200px;
-    border: 1px darkblue dashed;
+    /* border: 1px darkblue dashed; */
     display: flex;
     align-items: center;
     color: var(--principal);
