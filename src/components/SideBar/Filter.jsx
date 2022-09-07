@@ -29,21 +29,44 @@ const Filter = ({ setSearch, filter, setFilter }) => {
         setSearch(productsFilter)
     }
 
+    const handleFilterPrice = e => {
+        e.preventDefault()
+        let priceFrom = e.target.priceFrom.value
+        let priceTo = e.target.priceTo.value
+        let result;
+
+        if (!priceFrom && !priceTo) {
+            setSearch(products)
+        } else if (priceFrom && !priceTo) {
+            result = products.filter(productPrice => parseInt(productPrice.price) >= priceFrom)
+            setSearch(result)
+        } else if (!priceFrom && priceTo) {
+            result = products.filter(productPrice => parseInt(productPrice.price) <= priceTo)
+            setSearch(result)
+        } else if (priceFrom && priceTo) {
+            result = products.filter(productPrice => parseInt(productPrice.price) >= priceFrom && parseInt(productPrice.price) <= priceTo)
+            setSearch(result)
+        }
+
+
+
+    }
+
     return (
         <div className="filter__types">
-            <div className="filter__price">
+            <form onSubmit={handleFilterPrice} className="filter__price">
                 <h4>Price</h4>
                 <div className="filter__line" />
                 <div className="filter__content">
                     <label htmlFor="from">From:</label>
-                    <input type="number" />
+                    <input id='priceFrom' type="number" />
                 </div>
                 <div className="filter__content">
                     <label htmlFor="to">to:</label>
-                    <input type="number" />
+                    <input id='priceTo' type="number" />
                 </div>
-                <button>Filter Price</button>
-            </div>
+                <button type='submit'>Filter Price</button>
+            </form>
             <div className="filter__category">
                 <h4>Category</h4>
                 <div className="filter__line" />

@@ -13,6 +13,10 @@
 
 }
 
+.hidden{
+    opacity: 0;
+}
+
 .header__nav {
     /* border: dashed 1px red; */
     display: flex;

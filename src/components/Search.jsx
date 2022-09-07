@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/Search.css'
 
-const Search = ({actionOnchange}) => {
+const Search = ({ actionOnchange }) => {
     return (
         <div className="search">
             <input id='searchInput' onChange={actionOnchange} type="text" />

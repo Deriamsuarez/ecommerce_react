@@ -1,16 +1,20 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom';
-import Header from './Header';
 
 const ProtectedRoutes = () => {
 
-    let test = true;
-        return (
+        const logged = localStorage.getItem('token')
 
-                <Outlet/>
+        if (logged) {
+                return (
+                        <Outlet />
+                )
+        } else {
+                return (
+                        <Navigate to='/login' />
+                )
+        }
 
-        )
-    
 }
 
 export default ProtectedRoutes

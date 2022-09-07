@@ -1,17 +1,20 @@
 import React from 'react'
 
-const CartProduct = () => {
+const CartProduct = ({product}) => {
+
+ 
+  const deleteProduct = id => {
+    const url = `https://ecommerce-api-react.herokuapp.com/api/v1/cart/${id}`
+    axios.delete(url, getConfig())
+    .then(() => getAllProducts())
+    .catch(err => console.log(err))
+  }
+
+  // console.log(product)
   return (
     <div className='cart__product'>
-        <div className="cart__img">
-            <img src="https://www.fundacion-affinity.org/sites/default/files/los-10-sonidos-principales-del-perro.jpg"/>
-        </div>
-        <div className="cart__product__info">
-        <h5>Samsung j2 por los cuatrociento</h5>
-        <div className="cart__action__menu">
-            
-        </div>
-        </div>
+        <h5>{product.title}</h5>
+            <button onClick={() => deleteProduct(product.id)}>DELETE</button>
     </div>
   )
 }

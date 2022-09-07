@@ -14,7 +14,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 
   --principal: #e63946ff;
   --bg: #ffffff6d;
@@ -47,6 +46,10 @@ li {
   list-style: none;
 }
 
+h5{
+  color: var(--text)
+}
+
 button {
   padding: 10px;
   border-radius: 5px;
@@ -73,9 +76,10 @@ button:hover {
   /* border: 1px dashed rebeccapurple; */
   padding: 4.5em 2em;
   width: 100%;
-  max-height: 100vh;
+  min-height: 100vh;
   background-color: var(--bg);
   display: flex;
+
 }
 
 @media (max-width: 575px) {
