@@ -16,7 +16,7 @@ const Cart = ({ cartHidden }) => {
     const url = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
     axios.get(url, getConfig())
       .then(res => setCartProducts(res.data.data.cart.products))
-    // .catch(err => console.log('No hay productos'))
+      .catch(err => console.log('No hay productos'))
   }
 
   const navigate = useNavigate()
@@ -34,7 +34,7 @@ const Cart = ({ cartHidden }) => {
     setTotalValueCart(result)
     getAllProducts()
   }, [cartProducts])
-  
+
 
   return (
     <section className={`side__cart ${cartHidden ? 'cart__hidden' : ''} `} >
@@ -45,7 +45,7 @@ const Cart = ({ cartHidden }) => {
         </div>
         <div className="actions">
           <label><strong>{totalValueCart}</strong></label>
-        <button onClick={() => navigate('/checkout')}>Checkout</button>
+          <button onClick={() => navigate('/checkout')}>Checkout</button>
 
         </div>
 

@@ -27,7 +27,7 @@ const Purchase = () => {
   }, [id])
 
 
-  console.log(invoice)
+  // console.log(invoice)
   return (<>
     <div className="purchases__container">
       <div className="purchases__invoice_container">
@@ -36,7 +36,7 @@ const Purchase = () => {
       <div className="invoice">
         <label>Products of invoice #{id}</label>
       <div className="purchases__invoice_details">
-    {invoice && invoice.map(product => <PurchaseCardDetails key={product.cartId} product={product} />)}
+    {invoice && invoice.map(product => <PurchaseCardDetails key={product.title} product={product} />)}
       </div>
 
       </div>

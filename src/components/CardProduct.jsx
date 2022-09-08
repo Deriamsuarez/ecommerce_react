@@ -8,7 +8,7 @@ const CardProduct = ({product, handleAddProduct}) => {
     const navigate = useNavigate()
 
     const handleNavigateDetails = e => {
-        navigate(`/product/${product.id}`)
+        navigate(`/product/${e}`)
     } 
 
   return (
@@ -17,7 +17,7 @@ const CardProduct = ({product, handleAddProduct}) => {
             <img src={product.productImgs[0]}/>
         </div>
         <div className="card__product_info">
-            <h3 onClick={handleNavigateDetails} className="product__name">{product.title}</h3>
+            <h3 onClick={() => handleNavigateDetails(product.id)} className="product__name">{product.title}</h3>
             <div className="action__section">
                 <div className="product__price_container">
                     <label htmlFor="price">price</label>

@@ -1,10 +1,11 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/ProductDetails.css'
 import getConfig from '../utils'
 import CardProduct from './CardProduct'
 
 const SimilarsProducts = ({products}) => {
+
 
     const handleAddProduct = id => {
         const url = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'

@@ -13,7 +13,7 @@ const CardsContainer = ({ products }) => {
     const url = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
     axios.get(url, getConfig())
       .then(res => setCartProducts(res.data.data.cart.products))
-      .catch(err => console.log(err))
+      // .catch(err => console.log(err))
   }, [])
 
   // useEffect(() => {

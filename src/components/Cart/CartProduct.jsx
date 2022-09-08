@@ -1,4 +1,6 @@
+import axios from 'axios'
 import React from 'react'
+import getConfig from '../../utils'
 
 const CartProduct = ({product}) => {
 

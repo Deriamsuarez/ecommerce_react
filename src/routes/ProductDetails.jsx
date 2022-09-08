@@ -26,7 +26,7 @@ const ProductDetails = () => {
     axios.get(url, getConfig())
       .then(res => setProduct(res.data.data.product))
       .catch(err => console.log(err))
-  }, [])
+  }, [id])
 
   const handleAddProduct = id => {
     const url = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
@@ -50,9 +50,6 @@ useEffect(() => {
     })
   }
 }, [product])
-
-console.log(productCart)
-
 
   return (
     <div className='product__details_container'>
