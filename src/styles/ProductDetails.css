@@ -1,0 +1,6 @@
+.product__details_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 1px darkblue dashed; */
+}

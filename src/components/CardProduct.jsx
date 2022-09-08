@@ -1,9 +1,15 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../styles/CardProduct.css'
 
 const CardProduct = ({product, handleAddProduct}) => {
 
+    const navigate = useNavigate()
+
+    const handleNavigateDetails = e => {
+        navigate(`/product/${product.id}`)
+    } 
 
   return (
     <div className='card__product'>
@@ -11,7 +17,7 @@ const CardProduct = ({product, handleAddProduct}) => {
             <img src={product.productImgs[0]}/>
         </div>
         <div className="card__product_info">
-            <h3 className="product__name">{product.title}</h3>
+            <h3 onClick={handleNavigateDetails} className="product__name">{product.title}</h3>
             <div className="action__section">
                 <div className="product__price_container">
                     <label htmlFor="price">price</label>

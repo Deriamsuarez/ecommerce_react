@@ -1,39 +1,48 @@
 
 import React from "react";
-import { useForm } from "react-hook-form";
+import '../styles/Checkout.css'
 
-const normalizeCardNumber = (value) => {
-    return value.replace(/\s/g, "").match(/.{1,4}/g)?.join(" ").substr(0, 19) || ""
-}
+
+
 const Checkout = () => {
 
-    const { register, handleSubmit } = useForm();
-
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data));
-    };
-
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label htmlFor="cardNumber">Card Number:</label>
-                <input
-                    placeholder="0000 0000 0000 0000"
-                    type="tel"
-                    inputMode="numeric"
-                    autoComplete="cc-number"
-                    name="cardNumber"
-                    id="cardNumber"
-                    onChange={(event) => {
-                        const { value } = event.target
-                        event.target.value = normalizeCardNumber(value)
-                    }}
-                    ref={register}
-                />
+        <div className="checkout__container">
+            <div className="checkout__card__design">
+                <div className="card__container">
+                    <img className='card__front' src="card-front.png" alt="" />
+                    <label className="card__number" htmlFor="card_number">1234 5678 9012 3456</label>
+                    <label className="card__name" htmlFor="card_number">Deriam Suarez</label>
+                    <label className="card__date" htmlFor="card_number">06/26</label>
+                </div>
+                <div className="card__container">
+                    <img className='card__back' src="card-back.png" alt="" />
+                    <label className="card__cvv" htmlFor="card_number">543</label>
+                </div>
             </div>
-            <button>Submit</button>
-        </form>
-    );
+            <div className="checkout__form">
+                <form className='form__full' action="">
+                    <h2>Add Card</h2>
+                    <input type="text" />
+                    <div className="exp__date_container">
+                        <div className="exp__container">
+                            <label className="exp_label" htmlFor="">Exp date MM/YY</label>
+                            <div className="inputs__container">
+                                <input type="text" />
+                                <input type="text" />
+                            </div>
+                        </div>
+                        <div className="cvv__container">
+                            <label className="exp_label" htmlFor="">CVV</label>
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <button>Checkout</button>
+                </form>
+            </div>
+        </div>
+    )
+
 }
 
 export default Checkout

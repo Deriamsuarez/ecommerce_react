@@ -11,6 +11,12 @@
 
 }
 
+.card__product_info > h3:hover{
+    cursor: pointer;
+    color: var(--principal);
+    transition: 0.3s;
+}
+
 .card__product_header{
     width: 300px;
     height: 200px;
