@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../styles/Cart.css'
 import getConfig from '../utils'
 import CartProduct from './Cart/CartProduct'
@@ -9,13 +10,7 @@ const Cart = ({ cartHidden }) => {
   const [cartProducts, setCartProducts] = useState()
   const [totalValueCart, setTotalValueCart] = useState()
 
-  const data = {
-    "street": "Green St. 1456",
-    "colony": "Southwest",
-    "zipCode": 12345,
-    "city": "USA",
-    "references": "Some references"
-  }
+
 
   const getAllProducts = () => {
     const url = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
@@ -24,15 +19,8 @@ const Cart = ({ cartHidden }) => {
     // .catch(err => console.log('No hay productos'))
   }
 
-  const purchase = () => {
-    const url = 'https://ecommerce-api-react.herokuapp.com/api/v1/purchases'
-    axios.post(url, data, getConfig())
-      .then(res => {
-        getAllProducts()
-        console.log(res.data)
-      })
-      .catch(err => console.log(err))
-  }
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     getAllProducts()
@@ -57,7 +45,7 @@ const Cart = ({ cartHidden }) => {
         </div>
         <div className="actions">
           <label><strong>{totalValueCart}</strong></label>
-        <button onClick={purchase}>Checkout</button>
+        <button onClick={() => navigate('/checkout')}>Checkout</button>
 
         </div>
 
